@@ -1,18 +1,19 @@
 //Adrian Marquez Nunez A01707721
 //Proyecto clase Work
 //_______________________
-
+#ifndef Work_H
+#define Work_H
 //Bibliotecas
 #include <iostream>
 #include <string>
 
 class Work{
     private:
-    //atributos de la clase: nombre del trabajador(name), horas trabajadas(hours), puesto del trabajador(job)
+    //atributos de la clase: nombre del trabajador(name), puesto del trabajador(job), horas trabajadas(hours)
         std::string name;
-        int hours;
         int job;
     public:
+        int hours;
     //Constructor y metodos
         Work(): name(""), hours(0), job(0){};
         //metodos set de los diferentes atributos
@@ -25,6 +26,8 @@ class Work{
         std::string get_name();
         float get_hours();
         int get_job();
+        //metodo para aumentar el numero de horas trabajadas
+        void trabajar(int);
 };
 
 void Work::set_name(std::string nombre){
@@ -64,3 +67,8 @@ float Work::get_hours(){
 int Work::get_job(){
     return job;
 }
+
+void Work::trabajar(int wh){
+    hours=hours+wh;
+}
+#endif
