@@ -6,6 +6,7 @@
 //Bibliotecas
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class Work{
     private:
@@ -16,6 +17,7 @@ class Work{
         int hours;
     //Constructor y metodos
         Work(): name(""), hours(0), job(0){};
+        Work(std::string n,int h, int j):name(n), hours(h), job(j){};
         //metodos set de los diferentes atributos
         void set_name(std::string);
         void set_hours(float);
@@ -27,19 +29,20 @@ class Work{
         float get_hours();
         int get_job();
         //metodo para aumentar el numero de horas trabajadas
-        void trabajar(int);
+        void working(int);
+        std::string to_string();
 };
 
-void Work::set_name(std::string nombre){
-    name=nombre;
+void Work::set_name(std::string n){
+    name=n;
 }
 
-void Work::set_hours(float horas){
-    hours=horas;
+void Work::set_hours(float h){
+    hours=h;
 }
 
-void Work::set_job(int puesto){
-    job=puesto;
+void Work::set_job(int j){
+    job=j;
 }
 
 float Work::pay(){
@@ -68,7 +71,13 @@ int Work::get_job(){
     return job;
 }
 
-void Work::trabajar(int wh){
+void Work::working(int wh){
     hours=hours+wh;
+}
+
+std::string Work::to_string(){
+    std::stringstream aux;
+    aux << " " << name << " horas: " << hours;
+    return aux.str();
 }
 #endif
