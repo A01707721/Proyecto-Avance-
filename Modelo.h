@@ -45,60 +45,72 @@ void Modelo::set_inv(int i){
 class Produccion: public Modelo{
     //atributos de la clase: meta de vehiculos a producir(meta), lapso en dias para cumplir con la demanda(t), trabajador (worker)
     private:
-        float meta;
+        float goal;
         int t;
-        Work worker;
+        Work worker[100];
     public:
+        int num_worker;
     //Constructor y metodos
-        Produccion():Modelo(),meta(0),t(0){};
-        Produccion(std::string n, int i,float meta_autos, int tiempo): Modelo(n,i), meta(meta_autos), t(tiempo){};
+        Produccion():Modelo(),goal(0),t(0), num_worker(0){};
+        Produccion(std::string n, int i,float goal_cars, int time): Modelo(n,i), goal(goal_cars), t(time), num_worker(0){};
         //metodos get de los diferentes atributos
-        float get_meta();
+        float get_goal();
         int get_t();
-        Work get_worker();
+        Work get_worker(int);
         //metodos set de los diferentes atributos
-        void set_meta(float);
+        void set_goal(float);
         void set_t(int);
         void set_worker(Work);
         //metodo tasa_prod que realiza un calculo de la cantidad necesaria de vehiculos producidos en un dia para cumplir con la demanda
-        float tasa_prod();
+        float prod_rate();
         //metodo que produce vehiculos aumentando el invenatario y las horas de trabajo de los obreros
-        void producir(int,int);
+        void produce(int,int,int);
+        std::string status_worker();
 };
 
-float Produccion::get_meta(){
-    return meta;
+float Produccion::get_goal(){
+    return goal;
 }
 
 int Produccion::get_t(){
     return t;
 }
 
-Work Produccion::get_worker(){
-    return worker;
+Work Produccion::get_worker(int num){
+    return worker[num];
 }
 
-void Produccion::set_meta(float meta_autos){
-    meta=meta_autos;
+void Produccion::set_goal(float goal_cars){
+    goal=goal_cars;
 }
 
-void Produccion::set_t(int tiempo){
-    t=tiempo;
+void Produccion::set_t(int time){
+    t=time;
 }
 
 void Produccion::set_worker(Work w){
-    worker=w;
+    worker[num_worker]=w;
+    num_worker++;
 }
 
-float Produccion::tasa_prod(){
-    float tasa=0.0;
-    tasa=(meta-inv)/t;
-    return tasa;
+float Produccion::prod_rate(){
+    float rate=0.0;
+    rate=(goal-inv)/t;
+    return rate;
 }
 
-void Produccion::producir(int prod,int wh){
+void Produccion::produce(int prod,int num,int wh){
     inv=inv+prod;
-    worker.trabajar(wh);
+    worker[num].working(wh);
+}
+
+std::string Produccion::status_worker(){
+    std::stringstream aux;
+    aux << "Produccion " << get_modelo() << std::endl;
+    for(int i=0;i<num_worker;i++){
+        aux << worker[i].to_string() << std::endl;
+    }
+    return aux.str();
 }
 
 class Ganancias: public Modelo{
@@ -120,9 +132,9 @@ class Ganancias: public Modelo{
         void set_cost_p(float);
         void set_tasa_ventas(float);
         //metodo profit que realiza un calculo de las ganancias en base a las unidades vendidad
-        float profit(int);
+        float profit();
         //metodo que calcula en cuantos dias se venderian las unidades del inventario
-        int sold_out();
+        float sold_out();
 };
 
 float Ganancias::get_cost_v(){
@@ -150,13 +162,13 @@ void Ganancias::set_tasa_ventas(float ventas){
     tasa_ventas=ventas;
 }
 
-float Ganancias::profit(int unidades){
-    float gan=unidades*(cost_v-cost_p);
-    return gan;
+float Ganancias::profit(){
+    float prof=inv*(cost_v-cost_p);
+    return prof;
 }
 
-int Ganancias::sold_out(){
-    int t=inv/tasa_ventas;
+float Ganancias::sold_out(){
+    float t=inv/tasa_ventas;
     return t;
 }
 #endif
