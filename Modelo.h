@@ -170,7 +170,9 @@ void Produccion::set_worker(Work &w){
 */
 float Produccion::prod_rate(){
     float rate=0.0;
-    rate=(goal-inv)/t;
+    if(inv<goal){
+        rate=(goal-inv)/t;
+    }
     return rate;
 }
 
