@@ -1,8 +1,10 @@
-//Adrian Marquez Nunez A01707721
-//Descripcion Proyecto main
-//Proyecto clase programacion orientada a objetos, simula una planta de autos Toyota
-//Capturando la produccion y venta de diferentes autos, asi como sus empleados
-//_______________________
+/* 
+* Proyecto Planta Toyota
+* Adrian Marquez Nunez
+* A01707721
+* 29/11/2023
+*/
+
 //Bibliotecas
 #include <iostream>
 #include <stdio.h>
@@ -11,6 +13,10 @@
 #include "Modelo.h"
 //Para implementar objetos tipo Work
 #include "Work.h"
+
+/**Proyecto clase programacion orientada a objetos, simula una planta de autos Toyota
+*Capturando la produccion y venta de diferentes autos, asi como sus empleados
+*/
 
 //Menu inicial
 void menu(){
