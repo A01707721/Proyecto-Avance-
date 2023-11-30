@@ -1,7 +1,9 @@
-//Adrian Marquez Nunez A01707721
-//Clase padre Modelo que contiene los metodos y atributos basicos sobre los vehiculos y tiene 2 clases hijas:
-//Produccion y Ganancias que manejan el inventarrio y la venta de diferentes modelos de autos
-//_______________________
+/* 
+* Proyecto Planta Toyota
+* Adrian Marquez Nunez
+* A01707721
+* 29/11/2023
+*/
 #ifndef Modelo_H
 #define Modelo_H
 //Bibliotecas
@@ -10,6 +12,10 @@
 #include <string>
 //Para implementar objetos tipo Work
 #include "Work.h"
+
+/**Clase padre Modelo que contiene los metodos y atributos basicos sobre los vehiculos y tiene 2 clases hijas:
+*Produccion y Ganancias que manejan el inventarrio y la venta de diferentes modelos de autos
+*/
 
 //Declaracion de la clase padre Modelo
 class Modelo{
