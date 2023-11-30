@@ -168,7 +168,7 @@ int main(){
                     //Condicional si se elige la sub-sub-opcion 2. Producir autos Corolla
                     if(sel_1_1==2){
                         //Aumenta el inventario y las horas trabajadas en base a los valores recibidos
-                        Prius.produce(prod,wh);
+                        Corolla.produce(prod,wh);
                         //Imprime el nuevo inventario de autos y el nuevo numero de horas trabajadas
                         std::cout << "Se cuenta con: " << Corolla.get_inv() << " autos en inventario" << std::endl;
                         std::cout << Corolla.status_worker() << std::endl;
