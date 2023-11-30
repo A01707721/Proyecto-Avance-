@@ -201,19 +201,19 @@ int main(){
                 //Condicional si se elige la sub-opcion 1. Trabajador_1
                 if(sel_2==1){
                     //Imprime los datos del trabajador
-                    std::cout << W1.to_string() << std::endl;
+                    std::cout << Prius.status_worker() << std::endl;
                     std::cout << std::endl;
                 }
                 //Condicional si se elige la sub-opcion 2. Trabajador_2
                 if(sel_2==2){
                     //Imprime los datos del trabajador
-                    std::cout << W2.to_string() << std::endl;
+                    std::cout << Corolla.status_worker() << std::endl;
                     std::cout << std::endl;
                 }
                 //Condicional si se elige la sub-opcion 3. Trabajador_3
                 if(sel_2==3){
                     //Imprime los datos del trabajador
-                    std::cout << W3.to_string() << std::endl;
+                    std::cout << Tacoma.status_worker() << std::endl;
                     std::cout << std::endl;
                 }
                 //Condicional que rompe el ciclo y regresa al menu inicial
