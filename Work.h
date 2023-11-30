@@ -1,13 +1,20 @@
-//Adrian Marquez Nunez A01707721
-//Proyecto clase Work
-//_______________________
-//Clase Work que maneja datos de los trabajadores con su nombre, puesto, horas trabajadas y da la capacidad de trabajar y calcular su paga
+/* 
+* Proyecto Planta Toyota
+* Adrian Marquez Nunez
+* A01707721
+* 29/11/2023
+*/
 #ifndef Work_H
 #define Work_H
 //Bibliotecas
 #include <iostream>
 #include <string>
 #include <sstream>
+
+/**Clase Work que maneja datos de los trabajadores con su nombre, puesto, horas trabajadas 
+*y da la capacidad de trabajar y calcular su paga
+*/ 
+
 //Declaracion de la clase Work
 class Work{
     //atributos de la clase: nombre del trabajador(name), puesto del trabajador(job), horas trabajadas(hours)
